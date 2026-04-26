@@ -1,0 +1,18 @@
+{
+  "generatedAt": "2026-04-26T14:09:14.384Z",
+  "logo": "/images/site/logo.png",
+  "pages": {
+    "index": {
+      "image": "/images/pages/index.png"
+    },
+    "our-story": {
+      "image": "/images/pages/our-story.webp"
+    },
+    "our-why": {
+      "image": "/images/pages/our-why.webp"
+    },
+    "waiting-list-confirmation": {
+      "image": "/images/pages/waiting-list-confirmation.webp"
+    }
+  }
+}
