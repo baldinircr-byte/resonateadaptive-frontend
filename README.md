@@ -36,3 +36,24 @@ pnpm check
 ## Notes
 
 This is intentionally a smaller rebuild than the Strathcona frontend because the source site is structurally much smaller.
+
+## Migration approach
+
+This repo should follow the same core migration pattern used for Strathcona, adapted to a smaller WordPress source:
+
+1. **Sitemap defines public scope**
+   - Capture only the real public page set from the live sitemap.
+
+2. **Raw capture stays local**
+   - Store cleaned source capture under `content/raw/pages`.
+   - Treat those files as source material, not hand-authored marketing copy.
+
+3. **Assets are localized**
+   - Download page/brand assets into `public/`.
+   - Track them in `content/site/assets.json`.
+
+4. **Normalization happens in code**
+   - Rendering logic should clean and shape source content without depending on the live CMS.
+
+5. **Static frontend first**
+   - Keep the site Vercel-friendly and static unless a more complex backend is actually needed.
