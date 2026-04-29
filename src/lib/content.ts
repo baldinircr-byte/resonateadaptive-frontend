@@ -14,6 +14,7 @@ export type PageContent = {
 const ROOT = process.cwd();
 const RAW_DIR = path.join(ROOT, "content", "raw", "pages");
 const ASSET_MANIFEST_PATH = path.join(ROOT, "content", "site", "assets.json");
+const BASE_PATH = process.env.GITHUB_ACTIONS === "true" ? "/resonateadaptive-frontend" : "";
 
 export type AssetManifest = {
   generatedAt: string;
@@ -45,6 +46,22 @@ export const getPageBySlug = cache((slug: string) =>
   getPages().find((page) => page.slug === slug) ?? null,
 );
 
-export const getAssetManifest = cache(() =>
-  JSON.parse(fs.readFileSync(ASSET_MANIFEST_PATH, "utf8")) as AssetManifest,
-);
+function withBasePath(assetPath: string) {
+  if (!assetPath.startsWith("/")) return assetPath;
+  return `${BASE_PATH}${assetPath}`;
+}
+
+export const getAssetManifest = cache(() => {
+  const manifest = JSON.parse(fs.readFileSync(ASSET_MANIFEST_PATH, "utf8")) as AssetManifest;
+
+  return {
+    ...manifest,
+    logo: withBasePath(manifest.logo),
+    pages: Object.fromEntries(
+      Object.entries(manifest.pages).map(([slug, value]) => [
+        slug,
+        { image: withBasePath(value.image) },
+      ]),
+    ),
+  } satisfies AssetManifest;
+});
