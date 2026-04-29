@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f4f4f5;
-  --foreground: #111111;
+  --background: #f4f7fb;
+  --foreground: #0f172a;
 }
 
 html {
@@ -10,7 +10,9 @@ html {
 }
 
 body {
-  background: var(--background);
+  background:
+    radial-gradient(circle at top left, rgba(34, 211, 238, 0.06), transparent 22%),
+    linear-gradient(180deg, #f8fbff 0%, #f4f7fb 100%);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
@@ -25,29 +27,52 @@ img {
   display: block;
 }
 
-.prose-resonate h1,
-.prose-resonate h2,
-.prose-resonate h3 {
-  margin-top: 1.5rem;
-  margin-bottom: 0.75rem;
-  font-weight: 700;
-  line-height: 1.15;
+::selection {
+  background: rgba(34, 211, 238, 0.22);
 }
 
-.prose-resonate h1 { font-size: 2.25rem; }
-.prose-resonate h2 { font-size: 1.5rem; }
-.prose-resonate h3 { font-size: 1.125rem; }
-.prose-resonate p,
-.prose-resonate li {
-  color: rgba(17,17,17,0.8);
-  line-height: 1.8;
+.section-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #0891b2;
 }
-.prose-resonate ul {
-  list-style: disc;
-  padding-left: 1.25rem;
+
+.section-title {
+  margin-top: 0.8rem;
+  max-width: 16ch;
+  font-size: clamp(2.15rem, 4vw, 3.75rem);
+  line-height: 1.02;
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  text-wrap: balance;
 }
-.prose-resonate blockquote {
-  border-left: 4px solid #16a34a;
-  padding-left: 1rem;
-  color: rgba(17,17,17,0.75);
+
+.section-copy {
+  margin-top: 1.25rem;
+  max-width: 42rem;
+  font-size: 1.05rem;
+  line-height: 1.9;
+  color: rgb(71 85 105);
+}
+
+.card {
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 1.75rem;
+  background: rgba(255, 255, 255, 0.94);
+  padding: 1.5rem;
+  box-shadow: 0 18px 50px rgba(15, 23, 42, 0.08);
+}
+
+.badge {
+  display: inline-flex;
+  border-radius: 999px;
+  background: rgb(236 254 255);
+  color: rgb(14 116 144);
+  padding: 0.45rem 0.75rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
 }

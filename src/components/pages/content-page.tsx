@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 import { ButtonLink } from "@/components/ui/button-link";
 import { getAssetManifest, getPageBySlug } from "@/lib/content";
 
@@ -27,10 +29,18 @@ export function ContentPage({ slug }: { slug: string }) {
           </div>
           <div className="mt-10 flex flex-wrap gap-4">
             <ButtonLink href="/">Back home</ButtonLink>
-            <ButtonLink href={page.sourceUrl} variant="secondary">Open live source</ButtonLink>
+            <ButtonLink href={page.sourceUrl} variant="light">Open live source</ButtonLink>
           </div>
         </div>
-        {image ? <img src={image} alt={page.title} className="w-full rounded-3xl object-cover shadow-xl" /> : null}
+        {image ? (
+          <Image
+            src={image}
+            alt={page.title}
+            width={900}
+            height={1200}
+            className="w-full rounded-3xl object-cover shadow-xl"
+          />
+        ) : null}
       </section>
     </main>
   );
