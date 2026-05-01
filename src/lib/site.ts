@@ -24,7 +24,7 @@ export const hero = {
     "Resonate is an adaptive device concept designed to give pianists with limited lower limb function real access to the damper pedal on an acoustic piano.",
   primaryCta: { href: site.joinWaitlistEmailHref, label: "Join the waitlist" },
   secondaryCta: { href: "/#solution", label: "See the concept" },
-  tertiaryCta: { href: "/our-story", label: "Read Riccardo’s story" },
+  tertiaryCta: { href: "/our-story", label: "Our story" },
 };
 
 export const proofPoints = [
