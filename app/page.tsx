@@ -52,20 +52,21 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="relative">
+          <div className="relative overflow-hidden rounded-[2rem]">
             {assets.pages.index?.image ? (
               <Image
                 src={assets.pages.index.image}
                 alt="Riccardo Baldini playing piano in a wheelchair"
-                width={1112}
-                height={1266}
+                width={3000}
+                height={2250}
                 priority
-                className="aspect-[0.88] w-full rounded-[2rem] object-cover object-center shadow-[0_40px_120px_rgba(2,8,23,0.45)]"
+                className="aspect-[4/5] w-full object-cover object-[62%_center] shadow-[0_40px_120px_rgba(2,8,23,0.45)]"
               />
             ) : null}
-            <div className="absolute inset-x-6 bottom-6 rounded-[1.5rem] border border-white/12 bg-slate-950/72 p-5 backdrop-blur-md">
+            <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(2,6,23,0.08)_0%,rgba(2,6,23,0.18)_48%,rgba(2,6,23,0.62)_100%)]" />
+            <div className="absolute inset-x-6 bottom-6 rounded-[1.5rem] border border-white/12 bg-slate-950/62 p-5 backdrop-blur-md">
               <p className="eyebrow-light">The core problem</p>
-              <p className="mt-2 text-sm leading-6 text-white/80">
+              <p className="mt-2 text-sm leading-6 text-white/82">
                 For many disabled pianists, the real barrier is not talent or motivation. It is losing access to the pedal system that unlocks the instrument’s expressive range.
               </p>
             </div>
