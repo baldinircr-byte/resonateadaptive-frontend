@@ -38,9 +38,6 @@ export default function HomePage() {
               <ButtonLink href={hero.secondaryCta.href} variant="ghost">
                 {hero.secondaryCta.label}
               </ButtonLink>
-              <ButtonLink href={hero.tertiaryCta.href} variant="subtle">
-                {hero.tertiaryCta.label}
-              </ButtonLink>
             </div>
             <p className="mt-5 max-w-2xl text-sm leading-6 text-white/62">
               Resonate 2.0 is currently in development. This site is meant to explain the need clearly, show why the concept matters, and make it easy for interested people to raise their hand.
