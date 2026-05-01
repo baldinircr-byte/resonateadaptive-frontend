@@ -23,13 +23,25 @@ export default function HomePage() {
 
   return (
     <main className="bg-[var(--background)] text-[var(--foreground)]">
-      <section className="hero-shell text-white">
-        <div className="mx-auto grid max-w-7xl gap-14 px-6 py-16 md:grid-cols-[1.02fr_0.98fr] md:items-center md:py-24 xl:py-28">
-          <div>
+      <section className="hero-shell relative overflow-hidden text-white">
+        {assets.pages.index?.image ? (
+          <Image
+            src={assets.pages.index.image}
+            alt="Riccardo Baldini playing piano in a wheelchair"
+            width={3000}
+            height={2250}
+            priority
+            className="absolute inset-0 h-full w-full object-cover object-[62%_center]"
+          />
+        ) : null}
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(2,6,23,0.82)_0%,rgba(2,6,23,0.56)_38%,rgba(2,6,23,0.2)_100%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(2,6,23,0.22)_0%,rgba(2,6,23,0.3)_45%,rgba(2,6,23,0.72)_100%)]" />
+        <div className="relative mx-auto flex min-h-[88svh] max-w-7xl items-end px-6 py-16 md:min-h-[92svh] md:py-20 xl:py-24">
+          <div className="max-w-3xl">
             <h1 className="max-w-4xl text-5xl font-semibold tracking-tight text-balance md:text-7xl md:leading-[0.95]">
               {hero.title}
             </h1>
-            <p className="mt-6 max-w-2xl text-lg leading-8 text-white/76 md:text-xl">
+            <p className="mt-6 max-w-2xl text-lg leading-8 text-white/80 md:text-xl">
               {hero.description}
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
@@ -38,36 +50,16 @@ export default function HomePage() {
                 {hero.secondaryCta.label}
               </ButtonLink>
             </div>
-            <p className="mt-5 max-w-2xl text-sm leading-6 text-white/62">
+            <p className="mt-5 max-w-2xl text-sm leading-6 text-white/64">
               Resonate 2.0 is currently in development. This site is meant to explain the need clearly, show why the concept matters, and make it easy for interested people to raise their hand.
             </p>
-            <div className="mt-10 grid gap-4 sm:grid-cols-3">
+            <div className="mt-10 grid max-w-3xl gap-4 sm:grid-cols-3">
               {proofPoints.map((item) => (
                 <article key={item.label} className="glass-card">
                   <p className="text-xl font-semibold text-cyan-200 md:text-2xl">{item.value}</p>
-                  <p className="mt-2 text-sm leading-6 text-white/72">{item.label}</p>
+                  <p className="mt-2 text-sm leading-6 text-white/74">{item.label}</p>
                 </article>
               ))}
-            </div>
-          </div>
-
-          <div className="relative overflow-hidden rounded-[2rem]">
-            {assets.pages.index?.image ? (
-              <Image
-                src={assets.pages.index.image}
-                alt="Riccardo Baldini playing piano in a wheelchair"
-                width={3000}
-                height={2250}
-                priority
-                className="aspect-[4/5] w-full object-cover object-[62%_center] shadow-[0_40px_120px_rgba(2,8,23,0.45)]"
-              />
-            ) : null}
-            <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(2,6,23,0.08)_0%,rgba(2,6,23,0.18)_48%,rgba(2,6,23,0.62)_100%)]" />
-            <div className="absolute inset-x-6 bottom-6 rounded-[1.5rem] border border-white/12 bg-slate-950/62 p-5 backdrop-blur-md">
-              <p className="eyebrow-light">The core problem</p>
-              <p className="mt-2 text-sm leading-6 text-white/82">
-                For many disabled pianists, the real barrier is not talent or motivation. It is losing access to the pedal system that unlocks the instrument’s expressive range.
-              </p>
             </div>
           </div>
         </div>
