@@ -26,8 +26,7 @@ export default function HomePage() {
       <section className="hero-shell text-white">
         <div className="mx-auto grid max-w-7xl gap-14 px-6 py-16 md:grid-cols-[1.02fr_0.98fr] md:items-center md:py-24 xl:py-28">
           <div>
-            <p className="eyebrow-light">{hero.eyebrow}</p>
-            <h1 className="mt-4 max-w-4xl text-5xl font-semibold tracking-tight text-balance md:text-7xl md:leading-[0.95]">
+            <h1 className="max-w-4xl text-5xl font-semibold tracking-tight text-balance md:text-7xl md:leading-[0.95]">
               {hero.title}
             </h1>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-white/76 md:text-xl">

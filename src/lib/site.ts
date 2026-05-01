@@ -18,8 +18,7 @@ export const site = {
 };
 
 export const hero = {
-  eyebrow: "Adaptive piano pedal access",
-  title: "Bring the full piano back within reach.",
+  title: "Play Without Limits",
   description:
     "Resonate is an adaptive device concept designed to give pianists with limited lower limb function real access to the damper pedal on an acoustic piano.",
   primaryCta: { href: site.joinWaitlistEmailHref, label: "Join the waitlist" },
