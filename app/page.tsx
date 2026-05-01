@@ -59,14 +59,14 @@ export default function HomePage() {
             {assets.pages.index?.image ? (
               <Image
                 src={assets.pages.index.image}
-                alt="Riccardo performing at the piano using Resonate"
-                width={1200}
-                height={1500}
+                alt="Riccardo Baldini playing piano in a wheelchair"
+                width={1112}
+                height={1266}
                 priority
-                className="aspect-[4/5] w-full rounded-[2rem] object-cover shadow-[0_40px_120px_rgba(2,8,23,0.45)]"
+                className="aspect-[0.88] w-full rounded-[2rem] object-cover object-center shadow-[0_40px_120px_rgba(2,8,23,0.45)]"
               />
             ) : null}
-            <div className="absolute inset-x-6 bottom-6 rounded-[1.5rem] border border-white/12 bg-slate-950/68 p-5 backdrop-blur-md">
+            <div className="absolute inset-x-6 bottom-6 rounded-[1.5rem] border border-white/12 bg-slate-950/72 p-5 backdrop-blur-md">
               <p className="eyebrow-light">The core problem</p>
               <p className="mt-2 text-sm leading-6 text-white/80">
                 For many disabled pianists, the real barrier is not talent or motivation. It is losing access to the pedal system that unlocks the instrument’s expressive range.
