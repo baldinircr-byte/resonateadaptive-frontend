@@ -1,14 +1,24 @@
+import Image from "next/image";
 import Link from "next/link";
 
+import { getAssetManifest } from "@/lib/content";
 import { site } from "@/lib/site";
 
 export function Footer() {
+  const assets = getAssetManifest();
+
   return (
     <footer className="border-t border-slate-200 bg-white">
       <div className="mx-auto grid max-w-7xl gap-8 px-6 py-12 md:grid-cols-[1fr_auto_auto] md:items-end">
         <div>
-          <p className="text-lg font-semibold text-slate-950">{site.name}</p>
-          <p className="mt-2 max-w-md text-sm leading-6 text-slate-600">
+          <Image
+            src={assets.logoDark ?? assets.logo}
+            alt="Resonate Adaptive"
+            width={220}
+            height={66}
+            className="h-11 w-auto object-contain"
+          />
+          <p className="mt-3 max-w-md text-sm leading-6 text-slate-600">
             Adaptive technology focused on restoring damper pedal access and protecting the full expressive potential of the piano.
           </p>
         </div>

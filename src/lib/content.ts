@@ -19,6 +19,10 @@ const BASE_PATH = process.env.GITHUB_ACTIONS === "true" ? "/resonateadaptive-fro
 export type AssetManifest = {
   generatedAt: string;
   logo: string;
+  logoLight?: string;
+  logoDark?: string;
+  markLight?: string;
+  markDark?: string;
   pages: Record<string, { image: string }>;
 };
 
@@ -57,6 +61,10 @@ export const getAssetManifest = cache(() => {
   return {
     ...manifest,
     logo: withBasePath(manifest.logo),
+    logoLight: manifest.logoLight ? withBasePath(manifest.logoLight) : undefined,
+    logoDark: manifest.logoDark ? withBasePath(manifest.logoDark) : undefined,
+    markLight: manifest.markLight ? withBasePath(manifest.markLight) : undefined,
+    markDark: manifest.markDark ? withBasePath(manifest.markDark) : undefined,
     pages: Object.fromEntries(
       Object.entries(manifest.pages).map(([slug, value]) => [
         slug,

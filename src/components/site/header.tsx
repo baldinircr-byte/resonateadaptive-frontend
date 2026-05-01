@@ -14,7 +14,14 @@ export function Header() {
         <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
           <div className="flex items-center justify-between gap-6">
             <Link href="/" className="flex items-center gap-3">
-              <Image src={assets.logo} alt="Resonate Adaptive" width={190} height={44} className="h-11 w-auto" />
+              <Image
+                src={assets.logoLight ?? assets.logo}
+                alt="Resonate Adaptive"
+                width={220}
+                height={66}
+                className="h-12 w-auto object-contain"
+                priority
+              />
             </Link>
             <div className="lg:hidden">
               <ButtonLink href={site.joinWaitlistEmailHref} className="px-3 py-2 text-[11px]">

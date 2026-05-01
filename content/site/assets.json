@@ -1,6 +1,10 @@
 {
-  "generatedAt": "2026-04-26T15:08:02.676Z",
-  "logo": "/images/site/logo.png",
+  "generatedAt": "2026-05-01T17:20:00.000Z",
+  "logo": "/images/site/logo-dark.png",
+  "logoLight": "/images/site/logo-light.png",
+  "logoDark": "/images/site/logo-dark.png",
+  "markLight": "/images/site/mark-light.png",
+  "markDark": "/images/site/mark-dark.png",
   "pages": {
     "index": {
       "image": "/images/pages/index.png"
