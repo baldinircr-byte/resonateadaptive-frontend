@@ -2,94 +2,161 @@ export const site = {
   name: "Resonate Adaptive",
   domain: "https://www.resonateadaptive.com",
   description:
-    "Adaptive piano pedal technology helping disabled musicians access the full expressive potential of the piano.",
+    "Adaptive piano pedal technology restoring damper pedal access for disabled musicians, students, and music programs.",
   nav: [
-    { href: "/#how-it-works", label: "How it works" },
-    { href: "/#who-its-for", label: "Who it’s for" },
+    { href: "/#problem", label: "The problem" },
+    { href: "/#solution", label: "The solution" },
+    { href: "/#who-its-for", label: "Who it helps" },
     { href: "/our-story", label: "Our story" },
-    { href: "/our-why", label: "Our why" },
+    { href: "/our-why", label: "Why it matters" },
   ],
   waitlistHref: "/waiting-list-confirmation",
   contactEmail: "info@resonateadaptive.com",
   joinWaitlistEmailHref:
-    "mailto:info@resonateadaptive.com?subject=Resonate%20waitlist&body=Hi%20Resonate%20team%2C%0A%0AI%E2%80%99d%20like%20to%20join%20the%20waitlist%20and%20receive%20updates.%0A%0AName%3A%0ALocation%3A%0AConnection%20to%20piano%20%28player%2Fparent%2Fteacher%2Ftherapist%29%3A%0A%0AThank%20you%2C",
+    "mailto:info@resonateadaptive.com?subject=Resonate%20waitlist&body=Hi%20Resonate%20team%2C%0A%0AI%E2%80%99d%20like%20to%20join%20the%20waitlist%20and%20receive%20updates.%0A%0AName%3A%0ALocation%3A%0AConnection%20to%20piano%20%28player%2Fparent%2Fteacher%2Ftherapist%29%3A%0AWhat%20kind%20of%20piano%20or%20program%20is%20this%20for%3F%0A%0AThank%20you%2C",
   donateHref: "https://buy.stripe.com/eVa8xfehM8dFb2ofYY",
 };
 
 export const hero = {
-  eyebrow: "Adaptive piano technology",
-  title: "Play the piano with its full expressive range.",
+  eyebrow: "Adaptive piano pedal access",
+  title: "Bring the full piano back within reach.",
   description:
-    "Resonate is designed for musicians with limited lower limb function who want real access to the damper pedal on an acoustic piano.",
-  primaryCta: { href: "mailto:info@resonateadaptive.com?subject=Resonate%20waitlist&body=Hi%20Resonate%20team%2C%0A%0AI%E2%80%99d%20like%20to%20join%20the%20waitlist%20and%20receive%20updates.%0A%0AName%3A%0ALocation%3A%0AConnection%20to%20piano%20%28player%2Fparent%2Fteacher%2Ftherapist%29%3A%0A%0AThank%20you%2C", label: "Join the waitlist" },
-  secondaryCta: { href: "/#how-it-works", label: "See how it works" },
+    "Resonate is an adaptive device concept designed to give pianists with limited lower limb function real access to the damper pedal on an acoustic piano.",
+  primaryCta: { href: site.joinWaitlistEmailHref, label: "Join the waitlist" },
+  secondaryCta: { href: "/#solution", label: "See the concept" },
+  tertiaryCta: { href: "/our-story", label: "Read Riccardo’s story" },
 };
 
 export const proofPoints = [
   {
     value: "80%",
-    label: "of piano repertoire relies on damper pedal technique",
+    label: "of piano repertoire depends on damper pedal technique",
   },
   {
     value: "Global",
-    label: "interest from players, families, teachers, and therapists",
+    label: "interest from players, parents, teachers, and therapists",
   },
   {
-    value: "Real-world",
-    label: "built from lived experience after spinal cord injury",
+    value: "Born from need",
+    label: "created after a spinal cord injury removed pedal access",
+  },
+];
+
+export const urgencyPoints = [
+  "Without pedal access, huge parts of the piano repertoire become unavailable or compromised.",
+  "This barrier affects not only professionals, but also children, recovering musicians, and music programs.",
+  "Most people dealing with this problem have been forced to improvise their own incomplete workaround.",
+];
+
+export const solutionPillars = [
+  {
+    title: "Acoustic piano focused",
+    description:
+      "The concept is aimed at restoring access where standard piano pedals become the barrier, not just offering another digital workaround.",
+  },
+  {
+    title: "Designed around real use",
+    description:
+      "Resonate grew out of first-hand musical frustration, so the problem definition is unusually clear and grounded.",
+  },
+  {
+    title: "Built for expression",
+    description:
+      "The purpose is not novelty. It is restoring sustain, phrasing, and musical control that matter to real playing.",
   },
 ];
 
 export const audiences = [
   {
-    title: "Children learning piano",
+    title: "Young piano students",
     description:
-      "Young musicians who should be able to learn repertoire without being blocked by inaccessible pedal technique.",
-    badge: "Kids",
+      "Children who should be able to learn the instrument without hitting an artificial ceiling as soon as pedal technique matters.",
+    badge: "Students",
   },
   {
-    title: "Adults returning to music",
+    title: "Musicians after injury or illness",
     description:
-      "Players adapting after spinal cord injury, paralysis, muscular dystrophy, or other mobility limitations.",
-    badge: "Adults",
+      "Players adapting after spinal cord injury, paralysis, muscular dystrophy, or other conditions affecting lower limb function.",
+    badge: "Players",
   },
   {
-    title: "Music schools and studios",
+    title: "Parents and families",
     description:
-      "Teachers and institutions that want every student to access the full instrument, not a reduced version of it.",
-    badge: "Educators",
+      "People trying to keep a child’s or loved one’s musical growth alive instead of watching access disappear.",
+    badge: "Families",
   },
   {
-    title: "Therapists and rehab programs",
+    title: "Teachers, schools, and therapists",
     description:
-      "Clinicians using music as rehabilitation and looking for meaningful ways to restore musical participation.",
-    badge: "Clinical",
+      "Educators and rehabilitation professionals who want meaningful inclusion, not a watered-down version of piano participation.",
+    badge: "Programs",
   },
 ];
 
 export const steps = [
   {
-    title: "Position the device",
+    title: "Set the device in position",
     description:
-      "Set the adaptive mechanism in place at the piano so it can interface with the damper pedal system.",
+      "The system is placed so it can interface with the piano’s damper pedal function without relying on the player’s feet.",
   },
   {
-    title: "Activate with the mouthpiece",
+    title: "Activate through the mouthpiece",
     description:
-      "The player engages the mechanism without relying on lower limb function.",
+      "The player triggers the mechanism without lower limb function, creating an alternate access path to the pedal.",
   },
   {
-    title: "Play with full expression",
+    title: "Recover expressive control",
     description:
-      "Access sustain and phrasing that would otherwise be unavailable on an acoustic piano.",
+      "The point is to regain sustain, phrasing, and musical range that standard piano technique otherwise locks away.",
   },
 ];
 
-export const storyHighlights = [
-  "Riccardo has played piano since the age of five.",
-  "After a 2019 spinal cord injury, he lost access to the traditional pedal system.",
-  "Resonate was created to restore the musical range that paralysis had taken away.",
-  "The first on-stage return happened in October 2022 with the prototype in use.",
+export const statusCards = [
+  {
+    label: "Current stage",
+    body: "Resonate 2.0 is still in development and gathering strong demand signal from the people it is meant to serve.",
+  },
+  {
+    label: "What to do now",
+    body: "Join the waitlist, share your use case, and help shape the next version around real-world needs.",
+  },
+  {
+    label: "Why now",
+    body: "The more concrete stories and demand signal the project receives, the stronger the next development steps become.",
+  },
+];
+
+export const storyTimeline = [
+  {
+    year: "2019",
+    title: "Life changes abruptly",
+    description:
+      "After a spinal cord injury, Riccardo lost lower limb function and with it the ability to use traditional piano pedals.",
+  },
+  {
+    year: "Idea",
+    title: "The problem becomes specific",
+    description:
+      "The issue was not vague accessibility. It was the concrete loss of damper pedal access on the piano.",
+  },
+  {
+    year: "Build",
+    title: "Resonate takes shape",
+    description:
+      "Working with mechanical design engineer Steve Bosch, Riccardo began turning the idea into a practical adaptive concept.",
+  },
+  {
+    year: "2022",
+    title: "Back on stage",
+    description:
+      "In October 2022, the prototype helped make a return to performance possible for the first time since the injury.",
+  },
+];
+
+export const storyPrinciples = [
+  "The project began from lived musical loss, not hypothetical product ideation.",
+  "Its purpose is to restore dignity, ambition, and artistic control — not just functionality.",
+  "The long-term goal is wider access for disabled musicians, including those with limited income.",
 ];
 
 export const testimonials = [
@@ -97,32 +164,43 @@ export const testimonials = [
     quote:
       "I’m a T3 paraplegic. I currently play the piano without use of the pedals. Have been trying to find a solution for the last 20 years.",
     author: "Steve J.",
+    role: "Pianist",
   },
   {
     quote:
       "The fact I couldn’t use piano pedals was never really an issue until I started music school... discovering this has restored my faith and empowered my passion for the piano.",
     author: "Hannah H.",
+    role: "Music student",
   },
   {
-    quote:
-      "A device like Resonate would be a game changer.",
+    quote: "A device like Resonate would be a game changer.",
     author: "Alissa P.",
+    role: "Wheelchair user and pianist",
   },
   {
     quote:
       "Our son Henry is 6 and is learning to play the piano. He cannot use the pedals and we are very interested in the device.",
-    author: "Maria, parent of Henry",
+    author: "Maria",
+    role: "Parent",
   },
   {
     quote:
       "I would love to have access to a Resonate 2.0 when it is available in order to better serve individuals such as this patient.",
-    author: "Bailey, music therapist",
+    author: "Bailey",
+    role: "Music therapist",
   },
   {
     quote:
       "I study piano and I felt frustrated for not being able to step on the pedal. Now I am surprised to see that you have a design to be able to do it.",
     author: "Juan Carlos C.",
+    role: "Pianist with spinal cord injury",
   },
+];
+
+export const demandSignals = [
+  "Messages have come from disabled pianists, parents, teachers, and therapists.",
+  "The need spans both children learning piano and adults returning after injury.",
+  "Interest includes both personal use and institutional or clinical contexts.",
 ];
 
 export const pressLogos = ["CBC", "Global News", "CTV News"];
@@ -131,22 +209,21 @@ export const faqItems = [
   {
     question: "Who is Resonate designed for?",
     answer:
-      "Resonate is designed for pianists with limited lower limb function who want meaningful access to the damper pedal on an acoustic piano.",
+      "Resonate is aimed at pianists with limited lower limb function who want access to the damper pedal on an acoustic piano, along with the families, teachers, and programs supporting them.",
   },
   {
-    question: "Is this only for professional musicians?",
+    question: "Is it only relevant for professional musicians?",
     answer:
-      "No. The need spans children learning piano, adults returning to music after injury, teachers, music schools, and rehabilitation settings.",
+      "No. The need is just as real for children learning, adults returning to music, community music programs, and rehabilitation settings.",
   },
   {
     question: "What should someone do if they are interested?",
     answer:
-      "Join the waiting list, email the team, or share your story so the team can understand your situation and keep you updated on progress.",
+      "Join the waitlist by email and share your specific situation. That helps the team understand demand, context, and what kinds of users matter most in future development.",
   },
-];
-
-export const availabilityNotes = [
-  "Designed around real acoustic-piano access rather than a generic assistive concept.",
-  "Grounded in direct demand from disabled musicians and support networks.",
-  "Positioned as both an accessibility product and a mission-driven initiative.",
+  {
+    question: "What stage is the project at?",
+    answer:
+      "The public site should currently be understood as a development-stage project gathering signal, support, and real use cases for the next iteration.",
+  },
 ];

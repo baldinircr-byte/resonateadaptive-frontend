@@ -3,21 +3,34 @@ import Link from "next/link";
 
 import { ButtonLink } from "@/components/ui/button-link";
 import { getAssetManifest } from "@/lib/content";
-import { audiences, availabilityNotes, faqItems, hero, pressLogos, proofPoints, site, steps, testimonials } from "@/lib/site";
+import {
+  audiences,
+  demandSignals,
+  faqItems,
+  hero,
+  pressLogos,
+  proofPoints,
+  site,
+  solutionPillars,
+  statusCards,
+  steps,
+  testimonials,
+  urgencyPoints,
+} from "@/lib/site";
 
 export default function HomePage() {
   const assets = getAssetManifest();
 
   return (
     <main className="bg-[var(--background)] text-[var(--foreground)]">
-      <section className="bg-[radial-gradient(circle_at_top_left,_rgba(103,232,249,0.2),_transparent_28%),linear-gradient(180deg,#07111a_0%,#0d1821_100%)] text-white">
-        <div className="mx-auto grid max-w-7xl gap-12 px-6 py-16 md:grid-cols-[1.05fr_0.95fr] md:items-center md:py-24 lg:py-30">
+      <section className="hero-shell text-white">
+        <div className="mx-auto grid max-w-7xl gap-14 px-6 py-16 md:grid-cols-[1.02fr_0.98fr] md:items-center md:py-24 xl:py-28">
           <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.24em] text-cyan-200/80">{hero.eyebrow}</p>
-            <h1 className="mt-4 max-w-3xl text-5xl font-semibold tracking-tight text-balance md:text-7xl">
+            <p className="eyebrow-light">{hero.eyebrow}</p>
+            <h1 className="mt-4 max-w-4xl text-5xl font-semibold tracking-tight text-balance md:text-7xl md:leading-[0.95]">
               {hero.title}
             </h1>
-            <p className="mt-6 max-w-2xl text-lg leading-8 text-white/75 md:text-xl">
+            <p className="mt-6 max-w-2xl text-lg leading-8 text-white/76 md:text-xl">
               {hero.description}
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
@@ -25,16 +38,19 @@ export default function HomePage() {
               <ButtonLink href={hero.secondaryCta.href} variant="ghost">
                 {hero.secondaryCta.label}
               </ButtonLink>
+              <ButtonLink href={hero.tertiaryCta.href} variant="subtle">
+                {hero.tertiaryCta.label}
+              </ButtonLink>
             </div>
-            <p className="mt-4 text-sm leading-6 text-white/62">
-              Resonate 2.0 is currently in development. If you want updates or want to discuss your use case, contact the team now.
+            <p className="mt-5 max-w-2xl text-sm leading-6 text-white/62">
+              Resonate 2.0 is currently in development. This site is meant to explain the need clearly, show why the concept matters, and make it easy for interested people to raise their hand.
             </p>
             <div className="mt-10 grid gap-4 sm:grid-cols-3">
               {proofPoints.map((item) => (
-                <div key={item.label} className="rounded-2xl border border-white/10 bg-white/6 p-5 backdrop-blur-sm">
-                  <p className="text-2xl font-semibold text-cyan-200">{item.value}</p>
-                  <p className="mt-2 text-sm leading-6 text-white/70">{item.label}</p>
-                </div>
+                <article key={item.label} className="glass-card">
+                  <p className="text-xl font-semibold text-cyan-200 md:text-2xl">{item.value}</p>
+                  <p className="mt-2 text-sm leading-6 text-white/72">{item.label}</p>
+                </article>
               ))}
             </div>
           </div>
@@ -43,26 +59,27 @@ export default function HomePage() {
             {assets.pages.index?.image ? (
               <Image
                 src={assets.pages.index.image}
-                alt="Riccardo playing piano with Resonate"
+                alt="Riccardo performing at the piano using Resonate"
                 width={1200}
                 height={1500}
-                className="aspect-[4/5] w-full rounded-[2rem] object-cover shadow-[0_30px_90px_rgba(0,0,0,0.45)]"
+                priority
+                className="aspect-[4/5] w-full rounded-[2rem] object-cover shadow-[0_40px_120px_rgba(2,8,23,0.45)]"
               />
             ) : null}
-            <div className="absolute inset-x-6 bottom-6 rounded-2xl border border-white/10 bg-black/45 p-5 backdrop-blur-md">
-              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-cyan-200">Why this matters</p>
+            <div className="absolute inset-x-6 bottom-6 rounded-[1.5rem] border border-white/12 bg-slate-950/68 p-5 backdrop-blur-md">
+              <p className="eyebrow-light">The core problem</p>
               <p className="mt-2 text-sm leading-6 text-white/80">
-                For many disabled pianists, the issue is not talent or discipline. It is that the instrument itself becomes inaccessible at the pedal.
+                For many disabled pianists, the real barrier is not talent or motivation. It is losing access to the pedal system that unlocks the instrument’s expressive range.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="border-y border-black/8 bg-white">
+      <section className="border-y border-slate-200 bg-white/92">
         <div className="mx-auto max-w-7xl px-6 py-6">
           <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-            <p className="text-sm font-medium uppercase tracking-[0.22em] text-slate-500">Featured on</p>
+            <p className="eyebrow-dark">Featured on</p>
             <div className="flex flex-wrap gap-x-8 gap-y-3 text-sm font-semibold text-slate-700">
               {pressLogos.map((logo) => (
                 <span key={logo}>{logo}</span>
@@ -72,12 +89,66 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="who-its-for" className="mx-auto max-w-7xl px-6 py-18 md:py-24">
+      <section id="problem" className="mx-auto max-w-7xl px-6 py-20 md:py-28">
+        <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
+          <div>
+            <p className="section-label">The problem</p>
+            <h2 className="section-title">A pianist can keep their skill, taste, and discipline — and still lose access to the full instrument.</h2>
+            <p className="section-copy">
+              When lower limb function is limited, the damper pedal often becomes inaccessible. That one barrier can cut off phrasing, sustain, and huge sections of the repertoire.
+            </p>
+          </div>
+          <div className="space-y-4">
+            {urgencyPoints.map((item) => (
+              <article key={item} className="card card-strong">
+                <p className="text-base leading-7 text-slate-700">{item}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="solution" className="bg-slate-950 text-white">
+        <div className="mx-auto grid max-w-7xl gap-10 px-6 py-20 md:grid-cols-[0.94fr_1.06fr] md:items-start md:py-28">
+          <div>
+            <p className="eyebrow-light">The solution concept</p>
+            <h2 className="section-title max-w-[12ch] text-white">An adaptive path back to damper pedal access.</h2>
+            <p className="mt-5 max-w-2xl text-base leading-8 text-white/74 md:text-lg">
+              Resonate is built around a simple idea: if the standard path to the pedal is blocked, create another one. The concept focuses on restoring musical control, not just mechanical novelty.
+            </p>
+            <div className="mt-8 flex flex-wrap gap-4">
+              <ButtonLink href={site.joinWaitlistEmailHref}>Join the waitlist</ButtonLink>
+              <ButtonLink href={`mailto:${site.contactEmail}`} variant="ghost">
+                Contact the team
+              </ButtonLink>
+            </div>
+          </div>
+          <div className="grid gap-5">
+            {solutionPillars.map((item) => (
+              <article key={item.title} className="rounded-[1.75rem] border border-white/10 bg-white/5 p-6">
+                <h3 className="text-lg font-semibold text-white">{item.title}</h3>
+                <p className="mt-3 text-sm leading-7 text-white/72">{item.description}</p>
+              </article>
+            ))}
+            <div className="grid gap-4 md:grid-cols-3">
+              {steps.map((step, index) => (
+                <article key={step.title} className="rounded-[1.5rem] border border-white/10 bg-white/4 p-5">
+                  <p className="text-sm font-semibold uppercase tracking-[0.2em] text-cyan-200">0{index + 1}</p>
+                  <h3 className="mt-3 text-base font-semibold text-white">{step.title}</h3>
+                  <p className="mt-2 text-sm leading-6 text-white/70">{step.description}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="who-its-for" className="mx-auto max-w-7xl px-6 py-20 md:py-28">
         <div className="max-w-3xl">
-          <p className="section-label">Who it’s for</p>
-          <h2 className="section-title">Built for people who should never have been excluded from the piano in the first place.</h2>
+          <p className="section-label">Who it helps</p>
+          <h2 className="section-title">This is bigger than one user profile.</h2>
           <p className="section-copy">
-            Resonate is not a niche gimmick. It addresses a real access barrier affecting learners, professionals, families, educators, and rehabilitation settings.
+            The need shows up in different ways, but the pattern is consistent: people want access to the full instrument, not a compromised version of it.
           </p>
         </div>
         <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
@@ -91,83 +162,44 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="bg-slate-100">
-        <div className="mx-auto max-w-7xl px-6 py-18 md:py-24">
-          <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+      <section className="bg-white">
+        <div className="mx-auto max-w-7xl px-6 py-20 md:py-28">
+          <div className="grid gap-10 lg:grid-cols-[1fr_1fr]">
             <div>
               <p className="section-label">Current status</p>
-              <h2 className="section-title">A mission-driven product in active development.</h2>
+              <h2 className="section-title">A serious mission in active development.</h2>
               <p className="section-copy">
-                Resonate 2.0 is being shaped around real feedback from disabled musicians, families, teachers, and therapists. The goal is not just awareness. It is a usable product that restores real musical access.
+                Resonate should be understood today as a development-stage project with a strong human case and a growing body of demand. The right next step is to collect signal, sharpen the concept, and keep building around real use cases.
               </p>
             </div>
             <div className="grid gap-4 md:grid-cols-3">
-              <article className="card">
-                <p className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">Now</p>
-                <p className="mt-3 text-base leading-7 text-slate-700">Collecting interest, stories, and signal from the people this could help most.</p>
-              </article>
-              <article className="card">
-                <p className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">Next</p>
-                <p className="mt-3 text-base leading-7 text-slate-700">Refining the product direction, validating demand, and building the strongest next version.</p>
-              </article>
-              <article className="card">
-                <p className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">Best action</p>
-                <p className="mt-3 text-base leading-7 text-slate-700">Join the waitlist by email and share your situation so the team can understand your needs.</p>
-              </article>
+              {statusCards.map((item) => (
+                <article key={item.label} className="card card-strong">
+                  <p className="eyebrow-dark">{item.label}</p>
+                  <p className="mt-3 text-base leading-7 text-slate-700">{item.body}</p>
+                </article>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
-      <section id="how-it-works" className="bg-slate-950 text-white">
-        <div className="mx-auto grid max-w-7xl gap-10 px-6 py-18 md:grid-cols-[0.95fr_1.05fr] md:items-start md:py-24">
-          <div>
-            <p className="section-label text-cyan-200/80">How it works</p>
-            <h2 className="section-title text-white">A simple flow focused on restoring one critical part of piano technique.</h2>
-            <p className="section-copy text-white/72">
-              The goal is straightforward: make damper pedal access possible without lower limb function, so the instrument becomes expressive again.
-            </p>
-            <div className="mt-8 flex gap-4">
-              <ButtonLink href={site.joinWaitlistEmailHref}>Join the waitlist</ButtonLink>
-              <ButtonLink href={`mailto:${site.contactEmail}`} variant="ghost">
-                Contact the team
-              </ButtonLink>
-            </div>
-          </div>
-          <div className="grid gap-5">
-            {steps.map((step, index) => (
-              <article key={step.title} className="rounded-[1.75rem] border border-white/10 bg-white/5 p-6">
-                <div className="flex items-start gap-4">
-                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-cyan-300/15 text-sm font-semibold text-cyan-200">
-                    0{index + 1}
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-semibold">{step.title}</h3>
-                    <p className="mt-2 text-sm leading-7 text-white/72">{step.description}</p>
-                  </div>
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-7xl px-6 py-18 md:py-24">
+      <section className="mx-auto max-w-7xl px-6 py-20 md:py-28">
         <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
           <div>
             <p className="section-label">The story behind it</p>
-            <h2 className="section-title">Resonate started with one musician refusing to accept that paralysis meant the end of full piano expression.</h2>
+            <h2 className="section-title">Resonate did not start as a brand exercise. It started as a refusal to lose the piano.</h2>
             <p className="section-copy">
-              After a spinal cord injury in 2019, Riccardo lost the ability to use the piano pedals. Resonate was created to recover that lost part of the instrument and turn a personal workaround into something useful for others.
+              After a spinal cord injury in 2019, Riccardo lost access to the pedals and with them a core part of piano expression. Resonate grew from that precise loss into a broader accessibility mission.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
-              <ButtonLink href="/our-story">Read the full story</ButtonLink>
+              <ButtonLink href="/our-story">Explore the full story</ButtonLink>
               <ButtonLink href={site.donateHref} variant="light" target="_blank" rel="noreferrer">
                 Support accessibility
               </ButtonLink>
             </div>
           </div>
-          <div className="grid gap-4 rounded-[2rem] border border-black/8 bg-white p-6 shadow-[0_18px_50px_rgba(15,23,42,0.08)]">
+          <div className="grid gap-4 rounded-[2rem] border border-slate-200 bg-white p-6 shadow-[0_18px_50px_rgba(15,23,42,0.08)]">
             <div className="grid gap-4 sm:grid-cols-2">
               {assets.pages["our-story"]?.image ? (
                 <Image
@@ -181,7 +213,7 @@ export default function HomePage() {
               {assets.pages["our-why"]?.image ? (
                 <Image
                   src={assets.pages["our-why"].image}
-                  alt="Riccardo performing with Resonate"
+                  alt="Performance photo connected to Resonate"
                   width={900}
                   height={1200}
                   className="aspect-[4/5] w-full rounded-[1.5rem] object-cover"
@@ -189,72 +221,78 @@ export default function HomePage() {
               ) : null}
             </div>
             <div className="rounded-[1.5rem] bg-slate-50 p-6">
-              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">Why it stands out</p>
-              <div className="mt-4 space-y-3 text-base leading-7 text-slate-700">
-                {availabilityNotes.map((item) => (
-                  <p key={item}>{item}</p>
-                ))}
-              </div>
+              <p className="eyebrow-dark">Why the story matters</p>
+              <p className="mt-3 text-base leading-7 text-slate-700">
+                When a concept comes from real lived need, the messaging becomes more honest, the problem definition gets sharper, and the mission becomes easier to trust.
+              </p>
             </div>
           </div>
         </div>
       </section>
 
       <section className="bg-white">
-        <div className="mx-auto max-w-7xl px-6 py-18 md:py-24">
+        <div className="mx-auto max-w-7xl px-6 py-20 md:py-28">
           <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
             <div className="max-w-3xl">
               <p className="section-label">Signals of demand</p>
-              <h2 className="section-title">The need is already here.</h2>
+              <h2 className="section-title">People are already telling the same story from different angles.</h2>
               <p className="section-copy">
-                People are not asking whether this problem exists. They are asking when a real solution will be available.
+                The message is consistent: this is a real access problem, and people have been waiting a long time for a serious solution.
               </p>
             </div>
             <Link href="/our-why" className="text-sm font-semibold text-cyan-700 transition hover:text-cyan-900">
-              See more stories →
+              Read more demand context →
             </Link>
           </div>
           <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
             {testimonials.map((item) => (
-              <blockquote key={item.author} className="card">
+              <blockquote key={`${item.author}-${item.role}`} className="card h-full">
                 <p className="text-base leading-7 text-slate-700">“{item.quote}”</p>
-                <footer className="mt-5 text-sm font-semibold text-slate-950">{item.author}</footer>
+                <footer className="mt-5">
+                  <p className="text-sm font-semibold text-slate-950">{item.author}</p>
+                  <p className="mt-1 text-sm text-slate-500">{item.role}</p>
+                </footer>
               </blockquote>
+            ))}
+          </div>
+          <div className="mt-10 grid gap-4 md:grid-cols-3">
+            {demandSignals.map((item) => (
+              <article key={item} className="rounded-[1.5rem] bg-slate-50 p-5">
+                <p className="text-sm leading-7 text-slate-700">{item}</p>
+              </article>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="bg-white">
-        <div className="mx-auto max-w-7xl px-6 py-18 md:py-24">
-          <div className="grid gap-10 lg:grid-cols-[0.92fr_1.08fr]">
-            <div>
-              <p className="section-label">Questions people may have</p>
-              <h2 className="section-title">The site should answer the basics quickly and clearly.</h2>
-              <p className="section-copy">
-                Before someone joins a waiting list or reaches out, they need clarity on who this is for, what problem it solves, and what to do next.
-              </p>
-            </div>
-            <div className="space-y-4">
-              {faqItems.map((item) => (
-                <article key={item.question} className="card">
-                  <h3 className="text-lg font-semibold text-slate-950">{item.question}</h3>
-                  <p className="mt-3 text-base leading-7 text-slate-700">{item.answer}</p>
-                </article>
-              ))}
-            </div>
+      <section className="mx-auto max-w-7xl px-6 py-20 md:py-28">
+        <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
+          <div>
+            <p className="section-label">Questions and next steps</p>
+            <h2 className="section-title">People need clarity before they commit attention.</h2>
+            <p className="section-copy">
+              A strong accessibility product site should quickly answer the practical questions: who it is for, what stage it is at, and what someone should do if they care.
+            </p>
+          </div>
+          <div className="space-y-4">
+            {faqItems.map((item) => (
+              <article key={item.question} className="card">
+                <h3 className="text-lg font-semibold text-slate-950">{item.question}</h3>
+                <p className="mt-3 text-base leading-7 text-slate-700">{item.answer}</p>
+              </article>
+            ))}
           </div>
         </div>
       </section>
 
-      <section className="px-6 py-18 md:py-24">
-        <div className="mx-auto max-w-6xl rounded-[2rem] bg-[linear-gradient(135deg,#0f172a_0%,#164e63_100%)] px-8 py-10 text-white shadow-[0_30px_80px_rgba(8,15,29,0.25)] md:px-12 md:py-14">
+      <section className="px-6 py-20 md:py-28">
+        <div className="mx-auto max-w-6xl rounded-[2rem] bg-[linear-gradient(135deg,#082032_0%,#164e63_100%)] px-8 py-10 text-white shadow-[0_30px_80px_rgba(8,15,29,0.22)] md:px-12 md:py-14">
           <div className="grid gap-8 md:grid-cols-[1fr_auto] md:items-center">
             <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.22em] text-cyan-200">Stay close to the project</p>
-              <h2 className="mt-3 text-3xl font-semibold tracking-tight md:text-4xl">Interested in Resonate 2.0 or want to share your story?</h2>
+              <p className="eyebrow-light">Get involved</p>
+              <h2 className="mt-3 text-3xl font-semibold tracking-tight md:text-4xl">If this could help you, your child, your students, or your program, say so now.</h2>
               <p className="mt-4 max-w-2xl text-base leading-7 text-white/75">
-                Reach out to the team, follow development progress, or explore how this could support you, your student, or your program.
+                The strongest next version of Resonate will come from real stories, real demand, and real contexts of use. Joining the waitlist is the clearest way to be part of that.
               </p>
             </div>
             <div className="flex flex-wrap gap-4 md:justify-end">

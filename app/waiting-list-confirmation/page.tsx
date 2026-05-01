@@ -21,14 +21,14 @@ export default function WaitingListConfirmationPage() {
           <p className="section-label">Waiting list</p>
           <h1 className="section-title">You’re on the list.</h1>
           <p className="section-copy">
-            Thanks for joining the Resonate waiting list. You should receive an email from <strong>{site.contactEmail}</strong> with confirmation and future updates.
+            Thanks for signing up. You should receive a message from <strong>{site.contactEmail}</strong> with confirmation and future updates about Resonate.
           </p>
-          <div className="mt-8 rounded-[1.5rem] border border-black/8 bg-white p-6 shadow-[0_18px_50px_rgba(15,23,42,0.08)]">
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">Next steps</p>
+          <div className="mt-8 rounded-[1.5rem] border border-slate-200 bg-white p-6 shadow-[0_18px_50px_rgba(15,23,42,0.08)]">
+            <p className="eyebrow-dark">What to do next</p>
             <ul className="mt-4 space-y-3 text-base leading-7 text-slate-700">
               <li>Check your inbox for the confirmation email.</li>
               <li>If you don’t see it, check spam or promotions.</li>
-              <li>If it still doesn’t appear, email the team directly.</li>
+              <li>If you still can’t find it, contact the team directly.</li>
             </ul>
           </div>
           <div className="mt-8 flex flex-wrap gap-4">

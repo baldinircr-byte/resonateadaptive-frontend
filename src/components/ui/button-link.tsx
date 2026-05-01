@@ -5,11 +5,13 @@ import { cn } from "@/lib/utils";
 
 const variants = {
   primary:
-    "bg-cyan-500 !text-slate-950 hover:bg-cyan-300 hover:!text-slate-950 visited:!text-slate-950 shadow-[0_12px_30px_rgba(6,182,212,0.25)]",
+    "bg-cyan-400 !text-slate-950 hover:bg-cyan-300 hover:!text-slate-950 visited:!text-slate-950 shadow-[0_12px_30px_rgba(34,211,238,0.24)]",
   ghost:
     "border border-white/18 bg-white/8 !text-white hover:bg-white/14 visited:!text-white",
   light:
-    "border border-black/10 bg-white !text-slate-950 hover:bg-slate-50 visited:!text-slate-950",
+    "border border-slate-200 bg-white !text-slate-950 hover:bg-slate-50 visited:!text-slate-950",
+  subtle:
+    "border border-white/12 bg-transparent !text-white/88 hover:bg-white/8 hover:!text-white visited:!text-white/88",
 } as const;
 
 type ButtonLinkProps = {
